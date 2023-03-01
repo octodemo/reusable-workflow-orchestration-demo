@@ -18,7 +18,7 @@ on:
 jobs:
   # This job calls the centralized code scanning workflow
   scanning:
-    uses: octodemo/security-workflows/.github/workflows/code-scanning-mobile.yml@main
+    uses: octodemo/security-workflows/.github/workflows/code-scanning-api.yml@main
     secrets: inherit
     with:
       # This section is used to tell CodeQL which languages you need to scan in the repo
