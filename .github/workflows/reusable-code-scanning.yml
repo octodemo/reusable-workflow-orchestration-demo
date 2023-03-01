@@ -1,0 +1,26 @@
+# This is a centralized code scanning workflow.  This is the default code scanning workflow that automatically handles all of your
+# security scans.  
+# 
+# Need some more info? Check out our documentation here: https://github.com/octodemo/security-workflows
+# Got a question?  Ping the security team!
+
+name: Centralized Code Scanning
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: '22 5 * * 3'
+
+
+jobs:
+  # This job calls the centralized code scanning workflow
+  scanning:
+    uses: octodemo/security-workflows/.github/workflows/code-scanning-mobile.yml@main
+    secrets: inherit
+    with:
+      # This section is used to tell CodeQL which languages you need to scan in the repo
+      languages: " [ 'javascript' ] "
+
